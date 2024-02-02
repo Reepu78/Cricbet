@@ -1,0 +1,34 @@
+<div class="container d-flex justify-content-center">
+    <div class="col-8">
+        <form [formGroup]="LoginForm" (ngSubmit)="onSignIn()">
+                <div class="mb-3 text-center">
+                    <h3>Sign In</h3>
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Username" formControlName="username">
+                    <div class="form-text text-danger" *ngIf="Username.errors?.['required'] && Username.touched">
+                        Username is Required
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password"  placeholder="Password" formControlName="password">
+                    <div class="form-text text-danger" *ngIf="Password.errors?.['required'] && Password.touched">
+                        Password is Required
+                    </div>
+                   
+                </div>
+                
+                <div class="col-12">
+                    <button type="submit" class="btn" style="background-color: #F3486A; color: white;">Sign in</button>
+                </div>
+                
+                <div class="col-12">
+                    <span>You have not an Account? <a class="signupBtn btn" routerLink="/signup">SignUp</a></span>
+               </div>
+            
+        </form>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="conmtainer">
+    <div class="row text-center mb-3">
+        <h3>Upcomming Matches</h3>
+    </div>
+    <div class="row  d-flex justify-content-around mb-3" *ngFor="let series of matches" >
+        
+        <h3>{{series.seriesAdWrapper.seriesName}}</h3>
+        <div  class="col-4 mb-3" *ngFor="let match of series.seriesAdWrapper.matches">
+            <div class="card text-center">
+                <div class="card-header" style="background-color: #283352; color: white;">
+                  Match : {{match.matchInfo.matchDesc}}
+                </div>
+                <div class="card-body" style="background-color: #141C33; color: white;">
+                  <div>
+                    <h6>Match Format : {{match.matchInfo.matchFormat}}</h6>
+                  </div>
+                  <h5 class="card-title">{{match.matchInfo.status}}</h5>
+                  <h5 class="card-title">{{match.matchInfo.team1.teamName}} V/s {{match.matchInfo.team2.teamName}}</h5>
+                  
+                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+                <div class="card-footer text-body-secondary" style="background-color: #283352;">
+                  <p class="card-text" style="color: white;">City: {{match.matchInfo.venueInfo.city}}</p>
+                  <p class="card-text" style="color: white;">Ground: {{match.matchInfo.venueInfo.ground}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

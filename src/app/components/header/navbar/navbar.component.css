@@ -1,0 +1,11 @@
+.nav-item a{
+    color: white;
+}
+
+.coins{
+    color: green;
+}
+
+.nav-item a:hover{
+    background-color: #141C33;
+}

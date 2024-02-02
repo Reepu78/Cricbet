@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row d-flex justify-content-end">
+        <div class="col-2">
+            <h6 style="color: green;">Available Coins 500</h6>
+        </div>
+        <div class="col-2">
+            <a routerLink="/coins" class="btn">Buy Coins</a>
+        </div>
+       
+    </div>
+    <hr>
+     <div class="row">
+        <div class="container d-flex justify-content-center">
+            <div class="col-8">
+                <form (ngSubmit)="onWithdraw()" #myForm="ngForm">
+                    <div class="mb-3 text-center">
+                        <h3>Withdraw</h3>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">UPI ID</label>
+                        <input type="text" class="form-control" id="upi" placeholder="UPI Id" name="upi" [(ngModel)]="upi" required >
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col"> 
+                                <label for="formGroupExampleInput2" class="form-label">Enter Coins</label>
+                                <input type="number" class="form-control" id="coins" placeholder="Coins" (keyup)="convertCoinsToRupees(10,coins)" [(ngModel)]="coins" name="coins" >
+                                
+                            </div>
+                            <div class="col"> 
+                               <label for="formGroupExampleInput2" class="form-label">Indian Rupees</label>
+                                <input type="number" class="form-control" id="coins" placeholder="rs." (keyup)="convertRupeesToCoins(10, rupees)" [(ngModel)]="rupees" name="rupees">
+                            </div>
+                        </div>
+                       
+                        
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck1" name="ischecked" [(ngModel)]="ischecked" #checkNgModel="ngModel" required>
+                            <div class="form-text text-danger" *ngIf="checkNgModel.errors?.['required'] && checkNgModel.touched">
+                                checked is Required
+                            </div>
+                            <label class="form-check-label" for="gridCheck1"   id="ischecked" >
+                                Are you sure? 
+                            </label>
+                            <br>
+                            <span>You can convert minmum 500 coins!</span><br>
+                            <span>10 coins = Rs. 1</span>
+                        </div>
+                    </div>
+        
+                    <div class="mb-3">
+                        <button type="submit" class="btn"  [disabled]="myForm.invalid">Withdraw</button>
+                    </div>
+        
+                </form>
+            </div>
+        </div>
+
+     </div>
+    <hr>
+</div>
